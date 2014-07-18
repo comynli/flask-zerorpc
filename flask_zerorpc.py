@@ -51,6 +51,7 @@ class ZeroRPC(object):
         self.server_endpoint = app.config.get('ZERORPC_SERVER_ENDPOINT')
         self.client_endpoint = app.config.get('ZERORPC_CLIENT_ENDPOINT')
         self._handler = Handler(app)
+        app.extensions['zerorpc'] = self
 
     def start(self):
         if not self.server_endpoint:
